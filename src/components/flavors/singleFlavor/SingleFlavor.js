@@ -12,7 +12,12 @@ import {
 export default function SingleFlavor({ flavor }) {
   return (
     <StyledCardWrapper>
-      <GatsbyImage image={flavor.images[0].asset.gatsbyImageData} alt="Image" />
+      <Link to={`/flavors/${flavor.slug.current}`}>
+        <GatsbyImage
+          image={flavor.images[0].asset.gatsbyImageData}
+          alt="Image"
+        />
+      </Link>
       <StyledCardBody>
         <StyledCardHeader>
           <div>
@@ -40,5 +45,8 @@ SingleFlavor.propTypes = {
   flavor: PropTypes.shape({
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    calories: PropTypes.number.isRequired,
+    price: PropTypes.number.isRequired,
+    slug: PropTypes.string.isRequired,
   }).isRequired,
 };

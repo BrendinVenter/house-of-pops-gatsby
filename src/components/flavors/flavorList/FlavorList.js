@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SingleFlavor from '../singleFlavor/SingleFlavor';
+import FlavorFilter from '../flavorFilter/FlavorFilter';
 
 const StyledFlavorsList = styled.div`
   display: grid;
@@ -23,11 +24,14 @@ const StyledFlavorsList = styled.div`
 
 // markup
 const FlavorList = ({ flavors }) => (
-  <StyledFlavorsList>
-    {flavors.map((flavor) => (
-      <SingleFlavor key={flavor.id} flavor={flavor} />
-    ))}
-  </StyledFlavorsList>
+  <>
+    <FlavorFilter />
+    <StyledFlavorsList>
+      {flavors.map((flavor) => (
+        <SingleFlavor key={flavor.id} flavor={flavor} />
+      ))}
+    </StyledFlavorsList>
+  </>
 );
 
 export default FlavorList;
